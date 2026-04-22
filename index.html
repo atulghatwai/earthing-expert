@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earthing Expert — GPT Store Profile</title>
+<link href="./Earthing Expert — GPT Store Profile_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f0e;
+    --bg2: #131614;
+    --bg3: #181b19;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8ede9;
+    --muted: #8a9489;
+    --accent: #4ade80;
+    --accent2: #86efac;
+    --accent-dim: rgba(74,222,128,0.1);
+    --accent-dim2: rgba(74,222,128,0.06);
+    --warn: #fbbf24;
+    --warn-dim: rgba(251,191,36,0.1);
+    --danger: #f87171;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Layout */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(13,15,14,0.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-mark svg { width: 16px; height: 16px; }
+  .logo-name {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .header-cta {
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--accent);
+    color: #0a1a0e;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .header-cta:hover { opacity: 0.88; }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.2);
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 6vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    font-size: 14px;
+    font-weight: 500;
+    background: var(--accent);
+    color: #0a1a0e;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-ghost {
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid var(--border2);
+    padding: 12px 28px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+  /* Stats bar */
+  .stats-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+    margin-bottom: 64px;
+  }
+  .stats-inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 0 16px;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--accent2);
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Section */
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .section-body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 640px;
+  }
+  .section-body strong { color: var(--text); font-weight: 500; }
+
+  /* What it does */
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .cap-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .cap-card:hover { border-color: rgba(74,222,128,0.2); }
+  .cap-icon {
+    width: 32px; height: 32px;
+    background: var(--accent-dim2);
+    border: 1px solid rgba(74,222,128,0.15);
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+  }
+  .cap-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .cap-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* Who it's for */
+  .audience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .audience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .audience-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.2);
+    padding: 3px 9px;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .audience-text { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  .audience-text strong { color: var(--text); font-weight: 500; }
+
+  /* How it works */
+  .steps { margin-top: 28px; }
+  .step {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 28px;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 32px;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .step-content { padding-top: 4px; }
+  .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* India intelligence */
+  .india-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 24px 24px 24px 28px;
+    margin-top: 28px;
+  }
+  .india-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .india-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .india-item {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.55;
+    padding-left: 14px;
+    border-left: 1px solid var(--border);
+  }
+  .india-item strong { color: var(--accent2); font-weight: 500; }
+
+  /* Safety philosophy */
+  .safety-block {
+    background: var(--warn-dim);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 28px;
+  }
+  .safety-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--warn);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .safety-text { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
+  .safety-text strong { color: var(--text); font-weight: 500; }
+
+  /* Sample outputs */
+  .output-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .output-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .output-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .output-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .output-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .badge-pass { background: rgba(74,222,128,0.12); color: var(--accent); }
+  .badge-warn { background: var(--warn-dim); color: var(--warn); }
+  .badge-calc { background: rgba(147,197,253,0.1); color: #93c5fd; }
+  .output-body {
+    padding: 16px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .output-body .hl { color: var(--text); }
+  .output-body .green { color: var(--accent); }
+  .output-body .yellow { color: var(--warn); }
+  .output-body .blue { color: #93c5fd; }
+
+  /* Limitation */
+  .limit-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-top: 28px;
+  }
+  .limit-items { display: flex; flex-direction: column; gap: 10px; }
+  .limit-item {
+    display: flex;
+    gap: 12px;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .limit-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .limit-bullet { color: var(--accent); font-weight: 600; flex-shrink: 0; }
+
+  /* CTA */
+  .cta-block {
+    text-align: center;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 48px 32px;
+    margin-bottom: 48px;
+  }
+  .cta-block h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .cta-block p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 440px;
+    margin: 0 auto 28px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 0;
+    text-align: center;
+  }
+  .footer-text {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .footer-text strong { color: var(--text); font-weight: 500; }
+
+  /* Print styles */
+  @media print {
+    .header, .hero-actions, .header-cta, .btn-primary, .btn-ghost, .cta-block { display: none; }
+    body { background: white; color: #111; }
+    .hero { padding: 24px 0; }
+  }
+
+  @media (max-width: 600px) {
+    .capabilities-grid { grid-template-columns: 1fr; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
+    .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M8 2L8 14M2 8L14 8M4 4L12 12M12 4L4 12" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <span class="logo-name">Earthing Expert</span>
+    </div>
+    <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="header-cta">Try for free</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="container">
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      IEEE 80 · IS 3043 · CBIP · India-specific
+    </div>
+    <h1>Your senior earthing engineer.<br><em>Available 24/7.</em></h1>
+    <p class="hero-sub">
+      AI-powered design copilot for <strong>EHV substation earthing</strong> —
+      calculations, IS 3043 compliance checks, and preliminary design notes
+      built for practising engineers in the Indian power sector.
+    </p>
+    <div class="hero-actions">
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-primary">Start free →</a>
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#how" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+</div>
+
+<!-- Stats bar -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <span class="stat-num">33kV+</span>
+        <span class="stat-label">EHV focus</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Operating modes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">IS+IEEE</span>
+        <span class="stat-label">Dual standard</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">India</span>
+        <span class="stat-label">Soil intelligence</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- What it does -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">What it does</div>
+    <div class="section-title">Every earthing task.<br>One tool.</div>
+    <p class="section-body">
+      Earthing Expert handles the full range of earthing engineering tasks —
+      from a quick concept question to a full preliminary design note ready for
+      client submission. It runs calculations, checks compliance, and flags
+      the risks you didn't think to ask about.
+    </p>
+    <div class="capabilities-grid">
+      <div class="cap-card">
+        <div class="cap-icon">⊞</div>
+        <div class="cap-title">Grid design</div>
+        <div class="cap-desc">Step-by-step earthing grid sizing — mesh spacing, rod placement, conductor cross-section — per IEEE 80 method.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">∑</div>
+        <div class="cap-title">Calculations</div>
+        <div class="cap-desc">GPR, touch voltage, step voltage, conductor sizing, grid resistance — structured, traceable, with pass/fail verdict.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">✓</div>
+        <div class="cap-title">IS 3043 compliance</div>
+        <div class="cap-desc">Check any design, material, or installation practice against IS 3043 and IEEE 80. Clear verdict with corrective action.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">⟳</div>
+        <div class="cap-title">Rehabilitation</div>
+        <div class="cap-desc">Assess ageing systems, identify deficiencies, and build a phased upgrade plan — structured for CEIG inspection readiness.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">◈</div>
+        <div class="cap-title">Material specs</div>
+        <div class="cap-desc">Copper vs GI, conductor sizing, joint type selection — with India-specific corrosion and theft-risk guidance built in.</div>
+      </div>
+      <div class="cap-card">
+        <div class="cap-icon">≡</div>
+        <div class="cap-title">Report drafting</div>
+        <div class="cap-desc">Generates Preliminary Earthing Design Notes and Rehabilitation Assessment Reports — ready for client or CEIG submission.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="section">
+    <div class="section-label">Who it's for</div>
+    <div class="section-title">Built for every engineer<br>who touches an EHV substation.</div>
+    <div class="audience-list">
+      <div class="audience-item">
+        <span class="audience-tag">Design</span>
+        <div class="audience-text"><strong>Consulting engineers and PMC firms</strong> — run calculations, check compliance, and draft design notes faster. Stop billing 4 hours for a task that takes 20 minutes.</div>
+      </div>
+      <div class="audience-item">
+        <span class="audience-tag">EPC</span>
+        <div class="audience-text"><strong>EPC contractors</strong> — verify your earthing design before submission. Catch IS 3043 gaps before the client or CEIG does.</div>
+      </div>
+      <div class="audience-item">
+        <span class="audience-tag">Utility</span>
+        <div class="audience-text"><strong>DISCOM and utility engineers</strong> — assess ageing substation grids, plan rehabilitation, and build the documentation record for inspection.</div>
+      </div>
+      <div class="audience-item">
+        <span class="audience-tag">Student</span>
+        <div class="audience-text"><strong>Electrical engineering students and junior engineers</strong> — learn IS 3043 and IEEE 80 concepts with real calculations and explained reasoning, not just formulas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="section" id="how">
+    <div class="section-label">How it works</div>
+    <div class="section-title">Describe your substation.<br>Get an engineering answer.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <div class="step-title">Describe your problem in plain language</div>
+          <div class="step-desc">No special format needed. Tell it your substation voltage, fault current, soil conditions, and what you need — design, calculation, compliance check, or report.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <div class="step-title">It checks your data before calculating</div>
+          <div class="step-desc">Every query goes through a data sufficiency check first. Missing inputs are flagged with conservative assumptions — no fake precision from incomplete data.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <div class="step-title">Get a structured, traceable output</div>
+          <div class="step-desc">Calculations show formula, values substituted, result, and a pass/fail verdict. Design outputs include a missing data checklist you can forward to site teams.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <div class="step-title">Request a report when you need one</div>
+          <div class="step-desc">Ask for a Preliminary Earthing Design Note or Rehabilitation Assessment Report and it generates a structured document ready for client review or CEIG submission.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- India intelligence -->
+  <div class="section">
+    <div class="section-label">India intelligence</div>
+    <div class="section-title">Not a generic tool.<br>Built for Indian substations.</div>
+    <p class="section-body">
+      Most earthing tools are built for Western conditions — homogeneous soil,
+      stable climate, no theft risk. Indian substations are different. Earthing Expert
+      knows the difference.
+    </p>
+    <div class="india-block">
+      <div class="india-title">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="6.5" stroke="#4ade80" stroke-width="1"></circle>
+          <path d="M4 7L6.5 9.5L10 5" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        India-specific knowledge built in
+      </div>
+      <div class="india-items">
+        <div class="india-item"><strong>Black cotton soil</strong> — high corrosion, seasonal resistivity swings, deep rod penetration challenges. Flags this automatically for Vidarbha, Marathwada, and central India sites.</div>
+        <div class="india-item"><strong>Coastal and saline soil</strong> — chloride-driven galvanic corrosion of GI conductors. Recommends copper and alerts to accelerated degradation risk.</div>
+        <div class="india-item"><strong>Rocky and laterite terrain</strong> — high surface resistivity governs step voltage. Recommends counterpoise and surface layer treatment.</div>
+        <div class="india-item"><strong>GI conductor theft risk</strong> — flags when copper justifies its premium, particularly at critical HV equipment connection points.</div>
+        <div class="india-item"><strong>EHCC earthing clarity</strong> — acceptable as a supplement, never a replacement for a designed grid. This distinction is made every time, unprompted.</div>
+        <div class="india-item"><strong>CEIG inspection readiness</strong> — reminds you of required documentation (IS 3043 compliance, measured earth resistance records, as-built drawings) whenever commissioning is discussed.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Safety -->
+  <div class="section">
+    <div class="section-label">Safety philosophy</div>
+    <div class="section-title">It will tell you when<br>something is wrong.</div>
+    <p class="section-body">
+      Most tools answer what you ask. Earthing Expert also tells you what
+      you didn't ask — because in EHV earthing, the oversight you didn't
+      notice is the one that causes the accident.
+    </p>
+    <div class="safety-block">
+      <div class="safety-title">
+        ⚠ Safety Hold protocol
+      </div>
+      <div class="safety-text">
+        When any analysis reveals a condition where touch voltage may be unsafe,
+        bonding is missing, or a system cannot be confirmed safe —
+        <strong>it issues a Safety Hold before proceeding.</strong>
+        It names the specific condition, specifies the corrective action,
+        and advises involving a licensed EHV engineer for site verification.
+        It does not soften the language. It does not continue the design as if
+        the problem doesn't exist.
+      </div>
+    </div>
+  </div>
+
+  <!-- Sample outputs -->
+  <div class="section">
+    <div class="section-label">Sample outputs</div>
+    <div class="section-title">What the answers<br>actually look like.</div>
+    <div class="output-cards">
+      <div class="output-card">
+        <div class="output-header">
+          <span class="output-type">CALCULATION · GPR</span>
+          <span class="output-badge badge-pass">PASS</span>
+        </div>
+        <div class="output-body">
+          <span class="hl">Calculation:</span> Ground Potential Rise<br>
+          <span class="hl">Reference:</span> GPR = Ig × Rg [Standard Practice]<br>
+          <span class="hl">Inputs:</span> Ig = 18.5 kA, Rg = 0.35 Ω<br>
+          <span class="hl">Assumption:</span> Sf = 0.6, Df = 1.0 (conservative)<br>
+          <span class="hl">Result:</span> <span class="blue">GPR = 11,100 V = 11.1 kV</span><br>
+          <span class="hl">Criterion:</span> GPR must be evaluated against Etouch limit<br>
+          <span class="hl">Verdict:</span> <span class="green">GPR within acceptable range</span> — proceed to mesh voltage check
+        </div>
+      </div>
+      <div class="output-card">
+        <div class="output-header">
+          <span class="output-type">COMPLIANCE · IS 3043</span>
+          <span class="output-badge badge-warn">CONDITIONAL</span>
+        </div>
+        <div class="output-body">
+          <span class="hl">Query:</span> EHCC earthing as primary system, 66 kV substation<br>
+          <span class="hl">Reference:</span> IS 3043 earthing system requirements [Standard Practice]<br>
+          <span class="hl">Verdict:</span> <span class="yellow">CONDITIONALLY COMPLIANT</span><br>
+          <span class="hl">Condition:</span> Acceptable as supplement only. A designed grid per<br>
+          IS 3043 is required as the primary system. Chemical electrodes<br>
+          cannot replace grid conductors for fault current dissipation.<br>
+          <span class="hl">Action:</span> Retain grid design — add chemical electrodes at high-resistance zones.
+        </div>
+      </div>
+      <div class="output-card">
+        <div class="output-header">
+          <span class="output-type">SAFETY HOLD EXAMPLE</span>
+          <span class="output-badge" style="background:rgba(248,113,113,0.1);color:#f87171">HOLD</span>
+        </div>
+        <div class="output-body">
+          <span style="color:#f87171">⚠ SAFETY HOLD:</span> Measured earth resistance of 4.8 Ω at this<br>
+          132 kV substation with 31.5 kA fault current indicates<br>
+          GPR could reach ~150 kV — far exceeding tolerable touch limits.<br>
+          <span class="hl">Do NOT energise</span> until grid is augmented and earth resistance<br>
+          is reduced below 0.5 Ω (preliminary target).<br>
+          Involve a licensed EHV protection engineer for site verification.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Limitations -->
+  <div class="section">
+    <div class="section-label">Limitations — be honest</div>
+    <div class="section-title">What it cannot do.</div>
+    <p class="section-body">Earthing Expert is a preliminary engineering aid. It is not a licensed engineer, a statutory body, or a replacement for site verification.</p>
+    <div class="limit-block">
+      <div class="limit-items">
+        <div class="limit-item">
+          <span class="limit-bullet">→</span>
+          <span>It cannot certify, stamp, or approve a design for statutory or construction purposes. Final sign-off requires a competent licensed engineer.</span>
+        </div>
+        <div class="limit-item">
+          <span class="limit-bullet">→</span>
+          <span>It cannot substitute for site soil testing, physical continuity checks, or field measurements. It uses your data — garbage in, garbage out.</span>
+        </div>
+        <div class="limit-item">
+          <span class="limit-bullet">→</span>
+          <span>Clause citations are provided at confidence level. Where a specific clause cannot be confirmed, it says so and gives a qualitative reference instead.</span>
+        </div>
+        <div class="limit-item">
+          <span class="limit-bullet">→</span>
+          <span>It does not perform finite element analysis or advanced two-layer soil modelling. For complex multi-layer soil or large grid arrays, dedicated software (ETAP, CDEGS) is required.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Your next earthing decision<br>deserves a second opinion.</h2>
+    <p>Free tier is live. No signup required to try your first calculation.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-primary">Start free →</a>
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-ghost">View sample report</a>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="container">
+    <div class="footer-text">
+      <strong>Earthing Expert</strong> — AI-powered design copilot for EHV substation earthing.<br>
+      Aligned with IEEE Std. 80, IEEE Std. 81, IS 3043:2018, and CBIP Manual on Substation Design.<br>
+      <span style="opacity:0.5;font-size:11px;">Preliminary engineering aid only. Not a substitute for licensed engineering review.</span>
+    </div>
+  </div>
+</div>
+
+
+
+</body></html>
