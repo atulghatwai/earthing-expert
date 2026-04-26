@@ -253,10 +253,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(2,11,24,0.92);
   color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border2);
   padding:8px 16px;border-radius:4px;margin-bottom:12px;display:inline-block}
 .upi-note{font-size:11px;color:var(--muted);line-height:1.6}
-.qr-wrap{margin:0 auto 16px;width:180px;height:180px;
-  border:2px solid var(--border2);border-radius:8px;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;background:white}
-.qr-wrap img{width:100%;height:100%;object-fit:contain}
+.qr-wrap{
+  margin:0 auto 16px;
+  width:260px;     /* updated */
+  height:260px;    /* updated */
+  border:2px solid var(--border2);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:white;
+}
+.qr-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
 .qr-placeholder{display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:8px;color:var(--muted);font-size:11px;
   width:100%;height:100%;background:var(--bg2)}
@@ -314,7 +327,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
   <div class="hero">
     <img src="Image_Earthing_expert.png" alt="Earthing Expert" class="hero-logo"
          onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2296%22 height=%2296%22><rect width=%2296%22 height=%2296%22 rx=%2220%22 fill=%22%230a2240%22/><text x=%2248%22 y=%2268%22 text-anchor=%22middle%22 font-size=%2248%22>⏚</text></svg>'">
-    <div class="hero-tag"><span class="pulse"></span>Live • IEEE 80 • IS 3043 • CBIP • 11kV to 765kV • India</div>
+    <div class="hero-tag"><span class="pulse"></span>Live · IEEE 80 · IS 3043 · CBIP · 11kV to 765kV · India</div>
     <h1>Your Senior Earthing Engineer<br><span>Available 24/7</span></h1>
     <p class="hero-sub">
       AI-powered design copilot for <strong>substation earthing at all voltage levels</strong> —
@@ -353,7 +366,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
         <div class="dot" style="background:#ffbd2e;margin-left:6px"></div>
         <div class="dot" style="background:#27c93f;margin-left:6px"></div>
         <span class="calc-title">EARTHING DESIGN CALCULATOR</span>
-        <span class="calc-sub">IEEE 80 • IS 3043</span>
+        <span class="calc-sub">IEEE 80 · IS 3043</span>
       </div>
       <div class="calc-body">
         <div class="form-grid">
@@ -373,7 +386,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
             <span class="fh">Protection clearing time</span>
           </div>
           <div class="fg">
-            <label class="fl">Soil Resistivity (Ω•m)</label>
+            <label class="fl">Soil Resistivity (Ω·m)</label>
             <input type="number" class="fi" id="f-r" placeholder="e.g. 150" min="1" max="10000">
             <span class="fh">From Wenner 4-pin survey</span>
           </div>
@@ -562,7 +575,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
         <!-- YOUR QR CODE: Replace the div below with your actual QR image
              <img src="your-qr-code.png" style="width:180px;height:180px"> -->
         <div class="qr-wrap">
-          <div class="qr-placeholder">
+        <img src="images/payment-qr.png" alt="UPI QR Code">
+         </div>
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
               <rect x="4" y="4" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="2"/>
               <rect x="8" y="8" width="8" height="8" fill="#00d4ff"/>
@@ -580,7 +594,7 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
         </div>
         <div class="upi-id">atulghatwai@okaxis</div>
         <div class="upi-note">
-          Works with PhonePe • GPay • Paytm • BHIM<br>
+          Works with PhonePe · GPay · Paytm · BHIM<br>
           and all UPI-enabled banking apps.<br>
           <strong style="color:var(--amber)">International users:</strong>
           Contact via WhatsApp for payment options.
@@ -614,8 +628,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
     <div class="foot">
       <strong>Earthing Expert</strong> — AI-powered design copilot for EHV substation earthing.<br>
       Aligned with IEEE Std. 80, IEEE Std. 81, IS 3043:2018, and CBIP Manual on Substation Design.<br>
-      Built by <a href="https://www.linkedin.com/in/atulghatwai" target="_blank">Atul Ghatwai</a> •
-      <a href="https://wa.me/919823015442" target="_blank">+91 98230 15442</a> •
+      Built by <a href="https://www.linkedin.com/in/atulghatwai" target="_blank">Atul Ghatwai</a> ·
+      <a href="https://wa.me/919823015442" target="_blank">+91 98230 15442</a> ·
       <a href="mailto:atulghatwai@gmail.com">atulghatwai@gmail.com</a><br>
       <span style="opacity:.5;font-size:11px">Preliminary engineering aid only. Not a substitute for licensed engineering review. © 2024</span>
     </div>
