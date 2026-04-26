@@ -1,865 +1,724 @@
 <!DOCTYPE html>
-<!-- saved from url=(0065)https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Earthing Expert — GPT Store Profile</title>
-<link href="./Earthing Expert — GPT Store Profile_files/css2" rel="stylesheet">
+<title>Earthing Expert — Substation Earthing Design 11kV to 765kV | IS 3043 | IEEE 80 | India</title>
+<meta name="description" content="Free AI tool for substation earthing design at all voltage levels — 11kV distribution to 765kV transmission. Calculate touch voltage, step voltage, GPR, conductor sizing. IS 3043 and IEEE 80 compliant. Built for MSETCL, MSEDCL, PGCIL engineers and electrical engineering students in India.">
+<meta name="keywords" content="earthing design, earth mat design, IS 3043, IEEE 80, touch voltage calculation, step voltage, GPR calculation, 11kV substation earthing, 33kV earthing, EHV substation earthing, MSETCL earthing, MSEDCL earthing, substation grounding India, earthing grid design, conductor sizing earthing, soil resistivity, Wenner test, CBIP earthing manual, distribution substation earthing, 33 11kV earthing design">
+<meta name="author" content="Atul Ghatwai">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://atulghatwai.github.io/earthing-expert/">
+<meta property="og:title" content="Earthing Expert — EHV Substation Earthing Design Tool">
+<meta property="og:description" content="AI-powered earthing design copilot. IS 3043 compliance, IEEE 80 calculations, touch voltage, GPR. Free for engineers.">
+<meta property="og:url" content="https://atulghatwai.github.io/earthing-expert/">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0d0f0e;
-    --bg2: #131614;
-    --bg3: #181b19;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --text: #e8ede9;
-    --muted: #8a9489;
-    --accent: #4ade80;
-    --accent2: #86efac;
-    --accent-dim: rgba(74,222,128,0.1);
-    --accent-dim2: rgba(74,222,128,0.06);
-    --warn: #fbbf24;
-    --warn-dim: rgba(251,191,36,0.1);
-    --danger: #f87171;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Layout */
-  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
-
-  /* Header */
-  .header {
-    border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-    position: sticky;
-    top: 0;
-    background: rgba(13,15,14,0.92);
-    backdrop-filter: blur(12px);
-    z-index: 100;
-  }
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .logo-mark {
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    background: var(--accent-dim);
-    border: 1px solid rgba(74,222,128,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .logo-mark svg { width: 16px; height: 16px; }
-  .logo-name {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
-  .header-cta {
-    font-size: 13px;
-    font-weight: 500;
-    background: var(--accent);
-    color: #0a1a0e;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.15s;
-  }
-  .header-cta:hover { opacity: 0.88; }
-
-  /* Hero */
-  .hero {
-    padding: 72px 0 56px;
-    text-align: center;
-  }
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid rgba(74,222,128,0.2);
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 28px;
-  }
-  .eyebrow-dot {
-    width: 6px; height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(36px, 6vw, 52px);
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 20px;
-    color: var(--text);
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-  .hero-sub {
-    font-size: 17px;
-    color: var(--muted);
-    max-width: 560px;
-    margin: 0 auto 36px;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-  .hero-sub strong { color: var(--text); font-weight: 500; }
-  .hero-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn-primary {
-    font-size: 14px;
-    font-weight: 500;
-    background: var(--accent);
-    color: #0a1a0e;
-    border: none;
-    padding: 12px 28px;
-    border-radius: 7px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { opacity: 0.88; }
-  .btn-ghost {
-    font-size: 14px;
-    font-weight: 400;
-    background: transparent;
-    color: var(--muted);
-    border: 1px solid var(--border2);
-    padding: 12px 28px;
-    border-radius: 7px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.15s;
-    display: inline-block;
-  }
-  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
-
-  /* Stats bar */
-  .stats-bar {
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 24px 0;
-    margin-bottom: 64px;
-  }
-  .stats-inner {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-  .stat-item {
-    text-align: center;
-    padding: 0 16px;
-    border-right: 1px solid var(--border);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    color: var(--accent2);
-    display: block;
-    line-height: 1.1;
-    margin-bottom: 4px;
-  }
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    font-weight: 400;
-    letter-spacing: 0.02em;
-  }
-
-  /* Section */
-  .section { margin-bottom: 64px; }
-  .section-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-    margin-bottom: 12px;
-  }
-  .section-body {
-    font-size: 15px;
-    color: var(--muted);
-    line-height: 1.75;
-    max-width: 640px;
-  }
-  .section-body strong { color: var(--text); font-weight: 500; }
-
-  /* What it does */
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-top: 28px;
-  }
-  .cap-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    transition: border-color 0.2s;
-  }
-  .cap-card:hover { border-color: rgba(74,222,128,0.2); }
-  .cap-icon {
-    width: 32px; height: 32px;
-    background: var(--accent-dim2);
-    border: 1px solid rgba(74,222,128,0.15);
-    border-radius: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    font-size: 14px;
-  }
-  .cap-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 6px;
-    letter-spacing: -0.01em;
-  }
-  .cap-desc {
-    font-size: 12.5px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* Who it's for */
-  .audience-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 28px;
-  }
-  .audience-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 20px;
-  }
-  .audience-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid rgba(74,222,128,0.2);
-    padding: 3px 9px;
-    border-radius: 4px;
-    white-space: nowrap;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-  .audience-text { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
-  .audience-text strong { color: var(--text); font-weight: 500; }
-
-  /* How it works */
-  .steps { margin-top: 28px; }
-  .step {
-    display: flex;
-    gap: 20px;
-    padding-bottom: 28px;
-    position: relative;
-  }
-  .step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 15px;
-    top: 32px;
-    bottom: 0;
-    width: 1px;
-    background: var(--border);
-  }
-  .step-num {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    flex-shrink: 0;
-    z-index: 1;
-  }
-  .step-content { padding-top: 4px; }
-  .step-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-  /* India intelligence */
-  .india-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: 10px;
-    padding: 24px 24px 24px 28px;
-    margin-top: 28px;
-  }
-  .india-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .india-items {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .india-item {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.55;
-    padding-left: 14px;
-    border-left: 1px solid var(--border);
-  }
-  .india-item strong { color: var(--accent2); font-weight: 500; }
-
-  /* Safety philosophy */
-  .safety-block {
-    background: var(--warn-dim);
-    border: 1px solid rgba(251,191,36,0.2);
-    border-radius: 10px;
-    padding: 24px;
-    margin-top: 28px;
-  }
-  .safety-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--warn);
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .safety-text { font-size: 13.5px; color: var(--muted); line-height: 1.65; }
-  .safety-text strong { color: var(--text); font-weight: 500; }
-
-  /* Sample outputs */
-  .output-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 28px;
-  }
-  .output-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .output-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 18px;
-    border-bottom: 1px solid var(--border);
-    background: var(--bg3);
-  }
-  .output-type {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.05em;
-  }
-  .output-badge {
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 3px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
-  .badge-pass { background: rgba(74,222,128,0.12); color: var(--accent); }
-  .badge-warn { background: var(--warn-dim); color: var(--warn); }
-  .badge-calc { background: rgba(147,197,253,0.1); color: #93c5fd; }
-  .output-body {
-    padding: 16px 18px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-  .output-body .hl { color: var(--text); }
-  .output-body .green { color: var(--accent); }
-  .output-body .yellow { color: var(--warn); }
-  .output-body .blue { color: #93c5fd; }
-
-  /* Limitation */
-  .limit-block {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 24px;
-    margin-top: 28px;
-  }
-  .limit-items { display: flex; flex-direction: column; gap: 10px; }
-  .limit-item {
-    display: flex;
-    gap: 12px;
-    font-size: 13.5px;
-    color: var(--muted);
-    line-height: 1.6;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  .limit-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .limit-bullet { color: var(--accent); font-weight: 600; flex-shrink: 0; }
-
-  /* CTA */
-  .cta-block {
-    text-align: center;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 48px 32px;
-    margin-bottom: 48px;
-  }
-  .cta-block h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 30px;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-  .cta-block p {
-    font-size: 15px;
-    color: var(--muted);
-    max-width: 440px;
-    margin: 0 auto 28px;
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
-  /* Footer */
-  .footer {
-    border-top: 1px solid var(--border);
-    padding: 24px 0;
-    text-align: center;
-  }
-  .footer-text {
-    font-size: 12px;
-    color: var(--muted);
-    line-height: 1.7;
-  }
-  .footer-text strong { color: var(--text); font-weight: 500; }
-
-  /* Print styles */
-  @media print {
-    .header, .hero-actions, .header-cta, .btn-primary, .btn-ghost, .cta-block { display: none; }
-    body { background: white; color: #111; }
-    .hero { padding: 24px 0; }
-  }
-
-  @media (max-width: 600px) {
-    .capabilities-grid { grid-template-columns: 1fr; }
-    .stats-inner { grid-template-columns: repeat(2, 1fr); }
-    .stat-item:nth-child(2) { border-right: none; }
-    .stat-item:nth-child(3) { border-top: 1px solid var(--border); }
-    .stat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
-  }
+:root{
+  --bg:#020b18;--bg2:#041220;--bg3:#071a2e;--panel:#0a2240;
+  --border:rgba(0,180,255,0.12);--border2:rgba(0,180,255,0.22);
+  --cyan:#00d4ff;--cyan2:#00aacc;--cyan-dim:rgba(0,212,255,0.08);
+  --cyan-glow:rgba(0,212,255,0.25);
+  --text:#e0f0ff;--muted:#7aa0bb;
+  --green:#00e676;--green-dim:rgba(0,230,118,0.08);
+  --amber:#ffb300;--amber-dim:rgba(255,179,0,0.08);
+  --red:#ff5252;--shadow:0 4px 32px rgba(0,180,255,0.08);
+  --glow:0 0 40px rgba(0,180,255,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;
+  font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,180,255,0.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,180,255,0.03) 1px,transparent 1px);
+  background-size:40px 40px;pointer-events:none;z-index:0}
+.wrap{max-width:980px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(2,11,24,0.92);
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;
+  max-width:980px;margin:0 auto;padding:0 24px}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{width:36px;height:36px;border-radius:8px;border:1px solid var(--border2)}
+.nav-logo-text{font-family:'Rajdhani',sans-serif;font-size:18px;font-weight:700;
+  color:var(--cyan);letter-spacing:.04em}
+.nav-links{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.nav-link{font-size:13px;color:var(--muted);text-decoration:none;
+  padding:6px 12px;border-radius:4px;transition:all .15s}
+.nav-link:hover{color:var(--cyan);background:var(--cyan-dim)}
+.nav-cta{font-size:13px;font-weight:600;background:var(--cyan);color:var(--bg);
+  border:none;padding:8px 18px;border-radius:4px;cursor:pointer;text-decoration:none;
+  font-family:'Rajdhani',sans-serif;letter-spacing:.04em;transition:all .15s}
+.nav-cta:hover{background:#33ddff;box-shadow:0 0 20px var(--cyan-glow)}
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center;position:relative}
+.hero::after{content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);width:600px;height:600px;
+  background:radial-gradient(ellipse,rgba(0,180,255,0.06) 0%,transparent 70%);
+  pointer-events:none}
+.hero-logo{width:148px;height:148px;border-radius:28px;
+  border:3px solid var(--cyan);
+  box-shadow:0 0 60px var(--cyan-glow), 0 0 120px rgba(0,180,255,0.15), 0 0 0 8px rgba(0,212,255,0.06);
+  margin:0 auto 32px;display:block;animation:float 4s ease-in-out infinite;
+  background:var(--bg2)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--cyan);background:var(--cyan-dim);
+  border:1px solid var(--border2);padding:5px 14px;border-radius:20px;margin-bottom:20px}
+.pulse{width:6px;height:6px;background:var(--green);border-radius:50%;
+  animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.hero h1{font-family:'Rajdhani',sans-serif;font-size:clamp(36px,6vw,60px);
+  font-weight:700;line-height:1.05;letter-spacing:.02em;margin-bottom:16px;color:var(--text)}
+.hero h1 span{color:var(--cyan)}
+.hero-sub{font-size:17px;color:var(--muted);max-width:580px;margin:0 auto 32px;
+  line-height:1.65;font-weight:300}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-primary{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:.04em;background:var(--cyan);color:var(--bg);border:none;
+  padding:13px 32px;border-radius:5px;cursor:pointer;text-decoration:none;
+  transition:all .15s;display:inline-block}
+.btn-primary:hover{background:#33ddff;box-shadow:0 0 30px var(--cyan-glow);transform:translateY(-1px)}
+.btn-ghost{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.04em;background:transparent;color:var(--cyan);
+  border:1px solid var(--border2);padding:13px 32px;border-radius:5px;
+  cursor:pointer;text-decoration:none;transition:all .15s;display:inline-block}
+.btn-ghost:hover{background:var(--cyan-dim);border-color:var(--cyan)}
+.btn-wa{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;
+  letter-spacing:.04em;background:#25D366;color:white;border:none;
+  padding:13px 28px;border-radius:5px;cursor:pointer;text-decoration:none;
+  transition:all .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-wa:hover{background:#1ebe57;transform:translateY(-1px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:8px;overflow:hidden;margin-bottom:80px}
+.stat{background:var(--bg2);padding:20px 16px;text-align:center}
+.stat-n{font-family:'Rajdhani',sans-serif;font-size:26px;font-weight:700;
+  color:var(--cyan);display:block;line-height:1.1}
+.stat-l{font-size:11px;color:var(--muted);margin-top:2px}
+/* SECTION */
+.sec{padding:80px 0;border-top:1px solid var(--border)}
+.sec-label{font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);
+  margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:'Rajdhani',sans-serif;font-size:clamp(24px,4vw,36px);
+  font-weight:700;line-height:1.15;letter-spacing:.02em;margin-bottom:12px}
+.sec-body{font-size:15px;color:var(--muted);max-width:580px;
+  line-height:1.7;font-weight:300;margin-bottom:32px}
+.sec-body strong{color:var(--text);font-weight:600}
+/* CALCULATOR */
+.calc-card{background:var(--bg2);border:1px solid var(--border2);
+  border-radius:10px;overflow:hidden;box-shadow:var(--glow)}
+.calc-header{background:var(--panel);padding:16px 24px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%}
+.calc-title{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  color:var(--cyan);letter-spacing:.04em;margin-left:8px}
+.calc-sub{font-size:12px;color:var(--muted);margin-left:auto}
+.calc-body{padding:28px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;margin-bottom:16px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.fl{font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--cyan2)}
+.fi,.fs{background:var(--bg3);border:1px solid var(--border2);border-radius:4px;
+  padding:10px 12px;color:var(--text);font-family:'JetBrains Mono',monospace;
+  font-size:13px;transition:border-color .15s;outline:none}
+.fi:focus,.fs:focus{border-color:var(--cyan)}
+.fi::placeholder{color:var(--muted)}
+.fs option{background:var(--bg3)}
+.fh{font-size:11px;color:var(--muted)}
+.adv-btn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan2);
+  background:none;border:none;cursor:pointer;padding:8px 0;
+  letter-spacing:.06em;text-decoration:underline;text-underline-offset:3px}
+.adv-grid{display:none;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:16px;margin-top:16px}
+.adv-grid.open{display:grid}
+.run-btn{width:100%;font-family:'Rajdhani',sans-serif;font-size:16px;
+  font-weight:700;letter-spacing:.06em;background:var(--cyan);color:var(--bg);
+  border:none;padding:15px;border-radius:5px;cursor:pointer;margin-top:20px;
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
+.run-btn:hover{background:#33ddff;box-shadow:0 0 30px var(--cyan-glow)}
+.run-btn:disabled{background:var(--muted);cursor:not-allowed;box-shadow:none}
+.notice{margin-top:12px;padding:12px 16px;background:var(--amber-dim);
+  border:1px solid rgba(255,179,0,.2);border-radius:4px;
+  font-size:12px;color:var(--muted);line-height:1.6}
+.notice strong{color:var(--amber)}
+.result-box{margin-top:24px;background:var(--bg3);border:1px solid var(--border);
+  border-radius:6px;overflow:hidden;display:none}
+.result-box.show{display:block}
+.result-head{background:var(--panel);padding:12px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between}
+.result-title{font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+.copy-btn{font-family:'JetBrains Mono',monospace;font-size:11px;
+  background:var(--cyan-dim);color:var(--cyan);
+  border:1px solid var(--border2);padding:4px 12px;border-radius:3px;cursor:pointer}
+.result-content{padding:20px;font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:var(--text);line-height:1.8;
+  max-height:500px;overflow-y:auto;white-space:pre-wrap;word-break:break-word}
+.result-content::-webkit-scrollbar{width:4px}
+.result-content::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+/* CAPABILITIES */
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:12px;margin-top:32px}
+.cap-card{background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:22px;transition:all .2s}
+.cap-card:hover{border-color:var(--border2);box-shadow:0 0 20px var(--cyan-dim)}
+.cap-icon{width:38px;height:38px;background:var(--cyan-dim);
+  border:1px solid var(--border2);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;margin-bottom:14px}
+.cap-name{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;
+  color:var(--text);margin-bottom:6px;letter-spacing:.02em}
+.cap-desc{font-size:13px;color:var(--muted);line-height:1.6}
+/* AUDIENCE */
+.aud-list{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.aud-item{display:flex;align-items:flex-start;gap:16px;background:var(--bg2);
+  border:1px solid var(--border);border-radius:8px;padding:18px 22px;
+  transition:border-color .15s}
+.aud-item:hover{border-color:var(--border2)}
+.aud-tag{font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--cyan);
+  background:var(--cyan-dim);border:1px solid var(--border2);
+  padding:4px 10px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.aud-text{font-size:14px;color:var(--muted);line-height:1.6}
+.aud-text strong{color:var(--text);font-weight:600}
+/* INDIA */
+.india-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:10px;margin-top:28px}
+.india-card{background:var(--bg2);border:1px solid var(--border);
+  border-radius:8px;padding:18px 20px;border-left:3px solid var(--cyan)}
+.india-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;
+  color:var(--cyan);margin-bottom:6px;letter-spacing:.02em}
+.india-body{font-size:13px;color:var(--muted);line-height:1.6}
+/* PRICING */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;margin-top:32px}
+.plan{background:var(--bg2);border:1px solid var(--border);
+  border-radius:10px;padding:28px;position:relative;transition:all .2s}
+.plan:hover{border-color:var(--border2)}
+.plan.hot{border:2px solid var(--cyan);box-shadow:0 0 30px var(--cyan-dim)}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--cyan);color:var(--bg);font-family:'Rajdhani',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.08em;
+  padding:3px 14px;border-radius:10px;white-space:nowrap}
+.plan-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;
+  color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.plan-price{font-family:'Rajdhani',sans-serif;font-size:36px;font-weight:700;
+  color:var(--text);line-height:1;margin-bottom:4px}
+.plan-price span{font-size:14px;font-weight:400;color:var(--muted)}
+.plan-desc{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.55}
+.plan-feats{list-style:none;margin-bottom:24px}
+.pf{display:flex;gap:10px;font-size:13px;color:var(--muted);
+  padding:5px 0;border-bottom:1px solid var(--border);line-height:1.5}
+.pf:last-child{border-bottom:none}
+.ck{color:var(--green);flex-shrink:0;margin-top:2px}
+.cx{color:var(--muted);opacity:.4;flex-shrink:0;margin-top:2px}
+.plan-btn{width:100%;font-family:'Rajdhani',sans-serif;font-size:14px;
+  font-weight:700;letter-spacing:.04em;padding:11px;border-radius:5px;
+  cursor:pointer;border:1px solid var(--border2);background:transparent;
+  color:var(--text);transition:all .15s;text-decoration:none;
+  display:block;text-align:center}
+.plan-btn:hover{background:var(--cyan-dim);border-color:var(--cyan);color:var(--cyan)}
+.plan-btn.hot-btn{background:var(--cyan);color:var(--bg);border-color:var(--cyan)}
+.plan-btn.hot-btn:hover{background:#33ddff;box-shadow:0 0 20px var(--cyan-glow)}
+/* PAYMENT */
+.pay-card{background:var(--bg2);border:1px solid var(--border2);
+  border-radius:10px;padding:40px;display:grid;
+  grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.pay-title{font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:700;
+  margin-bottom:12px;letter-spacing:.02em}
+.pay-title span{color:var(--cyan)}
+.pay-body{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.pay-steps{list-style:none;margin-bottom:28px}
+.ps{display:flex;gap:12px;font-size:14px;color:var(--muted);
+  padding:8px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.ps:last-child{border-bottom:none}
+.psn{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);
+  min-width:24px;padding-top:2px;flex-shrink:0}
+.upi-box{background:var(--bg3);border:1px solid var(--border2);
+  border-radius:8px;padding:24px;text-align:center}
+.upi-label{font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+.upi-id{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:500;
+  color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border2);
+  padding:8px 16px;border-radius:4px;margin-bottom:12px;display:inline-block}
+.upi-note{font-size:11px;color:var(--muted);line-height:1.6}
+.qr-wrap{margin:0 auto 16px;width:180px;height:180px;
+  border:2px solid var(--border2);border-radius:8px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;background:white}
+.qr-wrap img{width:100%;height:100%;object-fit:contain}
+.qr-placeholder{display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:8px;color:var(--muted);font-size:11px;
+  width:100%;height:100%;background:var(--bg2)}
+/* CTA */
+.cta-box{background:linear-gradient(135deg,var(--bg2) 0%,var(--panel) 100%);
+  border:1px solid var(--border2);border-radius:12px;padding:56px 32px;
+  text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-50%;left:-50%;
+  width:200%;height:200%;
+  background:radial-gradient(ellipse at center,rgba(0,180,255,0.05) 0%,transparent 60%);
+  pointer-events:none}
+.cta-title{font-family:'Rajdhani',sans-serif;font-size:clamp(28px,4vw,42px);
+  font-weight:700;letter-spacing:.02em;margin-bottom:12px}
+.cta-title span{color:var(--cyan)}
+.cta-sub{font-size:16px;color:var(--muted);max-width:480px;margin:0 auto 32px;
+  line-height:1.65;font-weight:300}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
+.foot{font-size:12px;color:var(--muted);line-height:1.8}
+.foot a{color:var(--cyan);text-decoration:none}
+.foot a:hover{text-decoration:underline}
+/* SPINNER */
+.sp{display:inline-block;width:18px;height:18px;border:2px solid var(--bg);
+  border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:680px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .pay-card{grid-template-columns:1fr}
+  .nav-links .nav-link{display:none}
+}
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header class="header">
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 16 16" fill="none">
-          <path d="M8 2L8 14M2 8L14 8M4 4L12 12M12 4L4 12" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round"></path>
-        </svg>
-      </div>
-      <span class="logo-name">Earthing Expert</span>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="Image_Earthing_expert.png" alt="Earthing Expert"
+           onerror="this.style.display='none'">
+      <span class="nav-logo-text">EARTHING EXPERT</span>
+    </a>
+    <div class="nav-links">
+      <a href="#calculator" class="nav-link">Calculator</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#pay" class="nav-link">Get Access</a>
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert"
+         target="_blank" class="nav-cta">Try Free →</a>
     </div>
-    <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="header-cta">Try for free</a>
   </div>
-</header>
+</nav>
 
-<!-- Hero -->
-<div class="container">
+<div class="wrap">
   <div class="hero">
-    <div class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      IEEE 80 · IS 3043 · CBIP · India-specific
-    </div>
-    <h1>Your senior earthing engineer.<br><em>Available 24/7.</em></h1>
+    <img src="Image_Earthing_expert.png" alt="Earthing Expert" class="hero-logo"
+         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2296%22 height=%2296%22><rect width=%2296%22 height=%2296%22 rx=%2220%22 fill=%22%230a2240%22/><text x=%2248%22 y=%2268%22 text-anchor=%22middle%22 font-size=%2248%22>⏚</text></svg>'">
+    <div class="hero-tag"><span class="pulse"></span>Live · IEEE 80 · IS 3043 · CBIP · 11kV to 765kV · India</div>
+    <h1>Your Senior Earthing Engineer<br><span>Available 24/7</span></h1>
     <p class="hero-sub">
-      AI-powered design copilot for <strong>EHV substation earthing</strong> —
-      calculations, IS 3043 compliance checks, and preliminary design notes
-      built for practising engineers in the Indian power sector.
+      AI-powered design copilot for <strong>substation earthing at all voltage levels</strong> —
+      11kV distribution to 765kV transmission. Touch voltage, step voltage, GPR,
+      conductor sizing, IS 3043 compliance and preliminary design notes. Built for
+      <strong>MSETCL, MSEDCL, PGCIL engineers</strong> and students across India.
     </p>
-    <div class="hero-actions">
-      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-primary">Start free →</a>
-      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#how" class="btn-ghost">See how it works</a>
+    <div class="hero-btns">
+      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert"
+         target="_blank" class="btn-primary">Open Earthing Expert →</a>
+      <a href="#calculator" class="btn-ghost">Try Calculator</a>
+      <a href="https://wa.me/919823015442?text=Hi%20Atul%2C%20I%20want%20to%20know%20more%20about%20Earthing%20Expert"
+         target="_blank" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">11kV+</span><div class="stat-l">All Voltage Levels</div></div>
+      <div class="stat"><span class="stat-n">IEEE+IS</span><div class="stat-l">Dual Standard</div></div>
+      <div class="stat"><span class="stat-n">7</span><div class="stat-l">Design Modes</div></div>
+      <div class="stat"><span class="stat-n">India</span><div class="stat-l">Soil Intelligence</div></div>
     </div>
   </div>
 </div>
 
-<!-- Stats bar -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-inner">
-      <div class="stat-item">
-        <span class="stat-num">33kV+</span>
-        <span class="stat-label">EHV focus</span>
+<!-- CALCULATOR -->
+<div class="wrap" id="calculator">
+  <div class="sec">
+    <div class="sec-label">Live Calculator</div>
+    <div class="sec-title">Generate Your Design Note</div>
+    <p class="sec-body">Enter your substation parameters. The calculator calls our engineering API and returns a <strong>Preliminary Earthing Design Note</strong> aligned with IEEE 80 and IS 3043. <strong>Free — no login required.</strong></p>
+    <div class="calc-card">
+      <div class="calc-header">
+        <div class="dot" style="background:#ff5f56"></div>
+        <div class="dot" style="background:#ffbd2e;margin-left:6px"></div>
+        <div class="dot" style="background:#27c93f;margin-left:6px"></div>
+        <span class="calc-title">EARTHING DESIGN CALCULATOR</span>
+        <span class="calc-sub">IEEE 80 · IS 3043</span>
       </div>
-      <div class="stat-item">
-        <span class="stat-num">7</span>
-        <span class="stat-label">Operating modes</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">IS+IEEE</span>
-        <span class="stat-label">Dual standard</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-num">India</span>
-        <span class="stat-label">Soil intelligence</span>
+      <div class="calc-body">
+        <div class="form-grid">
+          <div class="fg">
+            <label class="fl">Substation Voltage (kV)</label>
+            <input type="number" class="fi" id="f-v" placeholder="e.g. 132" min="33" max="765">
+            <span class="fh">33, 66, 110, 132, 220, 400 kV</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Fault Current (kA)</label>
+            <input type="number" class="fi" id="f-f" placeholder="e.g. 31.5" min="0.1" max="100" step="0.1">
+            <span class="fh">Maximum earth fault current</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Clearing Time (seconds)</label>
+            <input type="number" class="fi" id="f-c" placeholder="e.g. 0.5" min="0.02" max="5" step="0.01">
+            <span class="fh">Protection clearing time</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Soil Resistivity (Ω·m)</label>
+            <input type="number" class="fi" id="f-r" placeholder="e.g. 150" min="1" max="10000">
+            <span class="fh">From Wenner 4-pin survey</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Soil Type</label>
+            <select class="fs" id="f-s">
+              <option value="">— Select soil type —</option>
+              <option value="alluvial">Alluvial (general)</option>
+              <option value="black cotton soil">Black Cotton Soil</option>
+              <option value="rocky laterite">Rocky / Laterite</option>
+              <option value="coastal saline">Coastal / Saline</option>
+              <option value="red soil">Red Soil</option>
+              <option value="mixed">Mixed / Unknown</option>
+            </select>
+            <span class="fh">Critical for India-specific design</span>
+          </div>
+          <div class="fg">
+            <label class="fl">Brief Description</label>
+            <input type="text" class="fi" id="f-q" placeholder="e.g. New 132kV substation, Vidarbha">
+            <span class="fh">Location / project context</span>
+          </div>
+        </div>
+        <button class="adv-btn" onclick="toggleAdv()">▸ Advanced inputs (grid geometry, X/R ratio, body weight)</button>
+        <div class="adv-grid" id="adv">
+          <div class="fg"><label class="fl">Grid Length (m)</label><input type="number" class="fi" id="f-gl" placeholder="e.g. 80"></div>
+          <div class="fg"><label class="fl">Grid Width (m)</label><input type="number" class="fi" id="f-gw" placeholder="e.g. 60"></div>
+          <div class="fg"><label class="fl">Grid Depth (m)</label><input type="number" class="fi" id="f-gd" placeholder="e.g. 0.6"></div>
+          <div class="fg"><label class="fl">Mesh Spacing (m)</label><input type="number" class="fi" id="f-ms" placeholder="e.g. 5"></div>
+          <div class="fg"><label class="fl">X/R Ratio</label><input type="number" class="fi" id="f-xr" placeholder="e.g. 15"></div>
+          <div class="fg"><label class="fl">Body Weight (kg)</label>
+            <select class="fs" id="f-bw">
+              <option value="">— Default 70 kg —</option>
+              <option value="50">50 kg</option>
+              <option value="70">70 kg</option>
+            </select>
+          </div>
+        </div>
+        <button class="run-btn" id="run-btn" onclick="runCalc()">
+          <span id="btn-txt">⚡ GENERATE EARTHING DESIGN NOTE</span>
+        </button>
+        <div class="notice">
+          <strong>⚙️ Preliminary assessment only.</strong>
+          Not for construction or statutory approval. Final design requires site-verified data and sign-off by a competent earthing engineer. &nbsp;|&nbsp;
+          <strong>API:</strong> <span style="font-family:'JetBrains Mono',monospace;font-size:11px">http://127.0.0.1:8000/earthing/query</span>
+          — <span style="color:var(--amber)">local mode</span> (switches to live URL after Railway deployment)
+        </div>
+        <div class="result-box" id="result-box">
+          <div class="result-head">
+            <span class="result-title">✓ PRELIMINARY EARTHING DESIGN NOTE GENERATED</span>
+            <button class="copy-btn" onclick="copyRpt()">Copy Report</button>
+          </div>
+          <div class="result-content" id="result-content"></div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- What it does -->
-<div class="container">
-  <div class="section">
-    <div class="section-label">What it does</div>
-    <div class="section-title">Every earthing task.<br>One tool.</div>
-    <p class="section-body">
-      Earthing Expert handles the full range of earthing engineering tasks —
-      from a quick concept question to a full preliminary design note ready for
-      client submission. It runs calculations, checks compliance, and flags
-      the risks you didn't think to ask about.
-    </p>
-    <div class="capabilities-grid">
-      <div class="cap-card">
-        <div class="cap-icon">⊞</div>
-        <div class="cap-title">Grid design</div>
-        <div class="cap-desc">Step-by-step earthing grid sizing — mesh spacing, rod placement, conductor cross-section — per IEEE 80 method.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">∑</div>
-        <div class="cap-title">Calculations</div>
-        <div class="cap-desc">GPR, touch voltage, step voltage, conductor sizing, grid resistance — structured, traceable, with pass/fail verdict.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">✓</div>
-        <div class="cap-title">IS 3043 compliance</div>
-        <div class="cap-desc">Check any design, material, or installation practice against IS 3043 and IEEE 80. Clear verdict with corrective action.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">⟳</div>
-        <div class="cap-title">Rehabilitation</div>
-        <div class="cap-desc">Assess ageing systems, identify deficiencies, and build a phased upgrade plan — structured for CEIG inspection readiness.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">◈</div>
-        <div class="cap-title">Material specs</div>
-        <div class="cap-desc">Copper vs GI, conductor sizing, joint type selection — with India-specific corrosion and theft-risk guidance built in.</div>
-      </div>
-      <div class="cap-card">
-        <div class="cap-icon">≡</div>
-        <div class="cap-title">Report drafting</div>
-        <div class="cap-desc">Generates Preliminary Earthing Design Notes and Rehabilitation Assessment Reports — ready for client or CEIG submission.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Who it's for -->
-  <div class="section">
-    <div class="section-label">Who it's for</div>
-    <div class="section-title">Built for every engineer<br>who touches an EHV substation.</div>
-    <div class="audience-list">
-      <div class="audience-item">
-        <span class="audience-tag">Design</span>
-        <div class="audience-text"><strong>Consulting engineers and PMC firms</strong> — run calculations, check compliance, and draft design notes faster. Stop billing 4 hours for a task that takes 20 minutes.</div>
-      </div>
-      <div class="audience-item">
-        <span class="audience-tag">EPC</span>
-        <div class="audience-text"><strong>EPC contractors</strong> — verify your earthing design before submission. Catch IS 3043 gaps before the client or CEIG does.</div>
-      </div>
-      <div class="audience-item">
-        <span class="audience-tag">Utility</span>
-        <div class="audience-text"><strong>DISCOM and utility engineers</strong> — assess ageing substation grids, plan rehabilitation, and build the documentation record for inspection.</div>
-      </div>
-      <div class="audience-item">
-        <span class="audience-tag">Student</span>
-        <div class="audience-text"><strong>Electrical engineering students and junior engineers</strong> — learn IS 3043 and IEEE 80 concepts with real calculations and explained reasoning, not just formulas.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- How it works -->
-  <div class="section" id="how">
-    <div class="section-label">How it works</div>
-    <div class="section-title">Describe your substation.<br>Get an engineering answer.</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div class="step-content">
-          <div class="step-title">Describe your problem in plain language</div>
-          <div class="step-desc">No special format needed. Tell it your substation voltage, fault current, soil conditions, and what you need — design, calculation, compliance check, or report.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div class="step-content">
-          <div class="step-title">It checks your data before calculating</div>
-          <div class="step-desc">Every query goes through a data sufficiency check first. Missing inputs are flagged with conservative assumptions — no fake precision from incomplete data.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div class="step-content">
-          <div class="step-title">Get a structured, traceable output</div>
-          <div class="step-desc">Calculations show formula, values substituted, result, and a pass/fail verdict. Design outputs include a missing data checklist you can forward to site teams.</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-content">
-          <div class="step-title">Request a report when you need one</div>
-          <div class="step-desc">Ask for a Preliminary Earthing Design Note or Rehabilitation Assessment Report and it generates a structured document ready for client review or CEIG submission.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- India intelligence -->
-  <div class="section">
-    <div class="section-label">India intelligence</div>
-    <div class="section-title">Not a generic tool.<br>Built for Indian substations.</div>
-    <p class="section-body">
-      Most earthing tools are built for Western conditions — homogeneous soil,
-      stable climate, no theft risk. Indian substations are different. Earthing Expert
-      knows the difference.
-    </p>
-    <div class="india-block">
-      <div class="india-title">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <circle cx="7" cy="7" r="6.5" stroke="#4ade80" stroke-width="1"></circle>
-          <path d="M4 7L6.5 9.5L10 5" stroke="#4ade80" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        India-specific knowledge built in
-      </div>
-      <div class="india-items">
-        <div class="india-item"><strong>Black cotton soil</strong> — high corrosion, seasonal resistivity swings, deep rod penetration challenges. Flags this automatically for Vidarbha, Marathwada, and central India sites.</div>
-        <div class="india-item"><strong>Coastal and saline soil</strong> — chloride-driven galvanic corrosion of GI conductors. Recommends copper and alerts to accelerated degradation risk.</div>
-        <div class="india-item"><strong>Rocky and laterite terrain</strong> — high surface resistivity governs step voltage. Recommends counterpoise and surface layer treatment.</div>
-        <div class="india-item"><strong>GI conductor theft risk</strong> — flags when copper justifies its premium, particularly at critical HV equipment connection points.</div>
-        <div class="india-item"><strong>EHCC earthing clarity</strong> — acceptable as a supplement, never a replacement for a designed grid. This distinction is made every time, unprompted.</div>
-        <div class="india-item"><strong>CEIG inspection readiness</strong> — reminds you of required documentation (IS 3043 compliance, measured earth resistance records, as-built drawings) whenever commissioning is discussed.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Safety -->
-  <div class="section">
-    <div class="section-label">Safety philosophy</div>
-    <div class="section-title">It will tell you when<br>something is wrong.</div>
-    <p class="section-body">
-      Most tools answer what you ask. Earthing Expert also tells you what
-      you didn't ask — because in EHV earthing, the oversight you didn't
-      notice is the one that causes the accident.
-    </p>
-    <div class="safety-block">
-      <div class="safety-title">
-        ⚠ Safety Hold protocol
-      </div>
-      <div class="safety-text">
-        When any analysis reveals a condition where touch voltage may be unsafe,
-        bonding is missing, or a system cannot be confirmed safe —
-        <strong>it issues a Safety Hold before proceeding.</strong>
-        It names the specific condition, specifies the corrective action,
-        and advises involving a licensed EHV engineer for site verification.
-        It does not soften the language. It does not continue the design as if
-        the problem doesn't exist.
-      </div>
-    </div>
-  </div>
-
-  <!-- Sample outputs -->
-  <div class="section">
-    <div class="section-label">Sample outputs</div>
-    <div class="section-title">What the answers<br>actually look like.</div>
-    <div class="output-cards">
-      <div class="output-card">
-        <div class="output-header">
-          <span class="output-type">CALCULATION · GPR</span>
-          <span class="output-badge badge-pass">PASS</span>
-        </div>
-        <div class="output-body">
-          <span class="hl">Calculation:</span> Ground Potential Rise<br>
-          <span class="hl">Reference:</span> GPR = Ig × Rg [Standard Practice]<br>
-          <span class="hl">Inputs:</span> Ig = 18.5 kA, Rg = 0.35 Ω<br>
-          <span class="hl">Assumption:</span> Sf = 0.6, Df = 1.0 (conservative)<br>
-          <span class="hl">Result:</span> <span class="blue">GPR = 11,100 V = 11.1 kV</span><br>
-          <span class="hl">Criterion:</span> GPR must be evaluated against Etouch limit<br>
-          <span class="hl">Verdict:</span> <span class="green">GPR within acceptable range</span> — proceed to mesh voltage check
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <span class="output-type">COMPLIANCE · IS 3043</span>
-          <span class="output-badge badge-warn">CONDITIONAL</span>
-        </div>
-        <div class="output-body">
-          <span class="hl">Query:</span> EHCC earthing as primary system, 66 kV substation<br>
-          <span class="hl">Reference:</span> IS 3043 earthing system requirements [Standard Practice]<br>
-          <span class="hl">Verdict:</span> <span class="yellow">CONDITIONALLY COMPLIANT</span><br>
-          <span class="hl">Condition:</span> Acceptable as supplement only. A designed grid per<br>
-          IS 3043 is required as the primary system. Chemical electrodes<br>
-          cannot replace grid conductors for fault current dissipation.<br>
-          <span class="hl">Action:</span> Retain grid design — add chemical electrodes at high-resistance zones.
-        </div>
-      </div>
-      <div class="output-card">
-        <div class="output-header">
-          <span class="output-type">SAFETY HOLD EXAMPLE</span>
-          <span class="output-badge" style="background:rgba(248,113,113,0.1);color:#f87171">HOLD</span>
-        </div>
-        <div class="output-body">
-          <span style="color:#f87171">⚠ SAFETY HOLD:</span> Measured earth resistance of 4.8 Ω at this<br>
-          132 kV substation with 31.5 kA fault current indicates<br>
-          GPR could reach ~150 kV — far exceeding tolerable touch limits.<br>
-          <span class="hl">Do NOT energise</span> until grid is augmented and earth resistance<br>
-          is reduced below 0.5 Ω (preliminary target).<br>
-          Involve a licensed EHV protection engineer for site verification.
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Limitations -->
-  <div class="section">
-    <div class="section-label">Limitations — be honest</div>
-    <div class="section-title">What it cannot do.</div>
-    <p class="section-body">Earthing Expert is a preliminary engineering aid. It is not a licensed engineer, a statutory body, or a replacement for site verification.</p>
-    <div class="limit-block">
-      <div class="limit-items">
-        <div class="limit-item">
-          <span class="limit-bullet">→</span>
-          <span>It cannot certify, stamp, or approve a design for statutory or construction purposes. Final sign-off requires a competent licensed engineer.</span>
-        </div>
-        <div class="limit-item">
-          <span class="limit-bullet">→</span>
-          <span>It cannot substitute for site soil testing, physical continuity checks, or field measurements. It uses your data — garbage in, garbage out.</span>
-        </div>
-        <div class="limit-item">
-          <span class="limit-bullet">→</span>
-          <span>Clause citations are provided at confidence level. Where a specific clause cannot be confirmed, it says so and gives a qualitative reference instead.</span>
-        </div>
-        <div class="limit-item">
-          <span class="limit-bullet">→</span>
-          <span>It does not perform finite element analysis or advanced two-layer soil modelling. For complex multi-layer soil or large grid arrays, dedicated software (ETAP, CDEGS) is required.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta-block">
-    <h2>Your next earthing decision<br>deserves a second opinion.</h2>
-    <p>Free tier is live. No signup required to try your first calculation.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-primary">Start free →</a>
-      <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert#" class="btn-ghost">View sample report</a>
+<!-- FEATURES -->
+<div class="wrap" id="features">
+  <div class="sec">
+    <div class="sec-label">Capabilities</div>
+    <div class="sec-title">Everything Earthing. One Tool.</div>
+    <p class="sec-body">From a quick concept question to a full design note ready for client submission — Earthing Expert handles the complete range of earthing engineering tasks.</p>
+    <div class="cap-grid">
+      <div class="cap-card"><div class="cap-icon">⊞</div><div class="cap-name">Grid Design</div><div class="cap-desc">Step-by-step earthing grid sizing — mesh spacing, rod placement, conductor sizing — per IEEE 80 method.</div></div>
+      <div class="cap-card"><div class="cap-icon">∑</div><div class="cap-name">Calculations</div><div class="cap-desc">GPR, touch voltage, step voltage, conductor sizing, grid resistance — structured and traceable with pass/fail verdict.</div></div>
+      <div class="cap-card"><div class="cap-icon">✓</div><div class="cap-name">IS 3043 Compliance</div><div class="cap-desc">Check any design, material, or installation practice. Clear verdict with exact corrective action required.</div></div>
+      <div class="cap-card"><div class="cap-icon">⟳</div><div class="cap-name">Rehabilitation</div><div class="cap-desc">Assess ageing systems, identify deficiencies, build a phased upgrade plan — structured for CEIG inspection.</div></div>
+      <div class="cap-card"><div class="cap-icon">◈</div><div class="cap-name">Material Specs</div><div class="cap-desc">Copper vs GI, conductor sizing, joint type — with India-specific corrosion and GI theft-risk guidance built in.</div></div>
+      <div class="cap-card"><div class="cap-icon">≡</div><div class="cap-name">Report Drafting</div><div class="cap-desc">Generates Preliminary Earthing Design Notes and Rehabilitation Assessment Reports for client or CEIG submission.</div></div>
     </div>
   </div>
 </div>
 
-<!-- Footer -->
-<div class="footer">
-  <div class="container">
-    <div class="footer-text">
+<!-- WHO IT IS FOR -->
+<div class="wrap">
+  <div class="sec">
+    <div class="sec-label">Who It Is For</div>
+    <div class="sec-title">Built for Every Engineer Who Touches an EHV Substation</div>
+    <div class="aud-list">
+      <div class="aud-item"><span class="aud-tag">MSETCL / MSEDCL</span><div class="aud-text"><strong>Utility engineers</strong> — assess ageing grids, plan rehabilitation, build documentation for CEIG inspection. Know your earthing as well as your protection.</div></div>
+      <div class="aud-item"><span class="aud-tag">33/11kV Distribution</span><div class="aud-text"><strong>Distribution substation engineers</strong> — design and check earthing for 33kV, 22kV, and 11kV substations. IS 3043 compliance, conductor sizing, and earth resistance targets all covered.</div></div>
+      <div class="aud-item"><span class="aud-tag">EPC / PMC</span><div class="aud-text"><strong>Contractors and consultants</strong> — verify earthing design before submission. Catch IS 3043 gaps before the client or CEIG does.</div></div>
+      <div class="aud-item"><span class="aud-tag">PGCIL / CTU</span><div class="aud-text"><strong>Transmission engineers</strong> — design and review EHV grid earthing with full IEEE 80 calculation discipline and India-specific soil intelligence.</div></div>
+      <div class="aud-item"><span class="aud-tag">Students</span><div class="aud-text"><strong>Electrical engineering students</strong> — learn IS 3043 and IEEE 80 with real calculations and explained reasoning. Build a foundation your peers won't have.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- INDIA INTELLIGENCE -->
+<div class="wrap">
+  <div class="sec">
+    <div class="sec-label">India Intelligence</div>
+    <div class="sec-title">Not a Generic Tool. Built for Indian Substations.</div>
+    <p class="sec-body">Most earthing tools are built for Western conditions. Indian substations are different. <strong>Earthing Expert knows the difference.</strong></p>
+    <div class="india-grid">
+      <div class="india-card"><div class="india-title">Black Cotton Soil</div><div class="india-body">High seasonal resistivity swings, aggressive corrosion. Automatically flags Vidarbha, Marathwada, central India sites.</div></div>
+      <div class="india-card"><div class="india-title">Coastal / Saline</div><div class="india-body">Chloride-driven galvanic corrosion of GI. Recommends copper and alerts to accelerated degradation risk.</div></div>
+      <div class="india-card"><div class="india-title">Rocky Laterite</div><div class="india-body">High surface resistivity — step voltage governs. Recommends counterpoise and surface layer treatment.</div></div>
+      <div class="india-card"><div class="india-title">GI Theft Risk</div><div class="india-body">Notes where copper justifies its premium — especially at critical HV equipment connection points.</div></div>
+      <div class="india-card"><div class="india-title">Chemical Earthing</div><div class="india-body">Acceptable as supplement only — never a replacement for an IS 3043 designed grid. Always clarifies this.</div></div>
+      <div class="india-card"><div class="india-title">CEIG Inspection</div><div class="india-body">Reminds you of required documents — IS 3043 compliance, measured earth resistance records, as-built drawings.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="wrap" id="pricing">
+  <div class="sec">
+    <div class="sec-label">Pricing</div>
+    <div class="sec-title">Simple, Fair Pricing for Engineers</div>
+    <p class="sec-body">Free to try. Pay only when you need deeper access. Every tier gives you more value than a single consulting visit costs.</p>
+    <div class="price-grid">
+      <div class="plan">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">Free <span>/ forever</span></div>
+        <div class="plan-desc">For students and first-time users. No signup needed.</div>
+        <ul class="plan-feats">
+          <li class="pf"><span class="ck">✓</span>Concept Q&amp;A unlimited</li>
+          <li class="pf"><span class="ck">✓</span>IS 3043 / IEEE 80 guidance</li>
+          <li class="pf"><span class="ck">✓</span>Soil type quick reference</li>
+          <li class="pf"><span class="ck">✓</span>Live calculator on this page</li>
+          <li class="pf"><span class="cx">–</span>Full design notes</li>
+          <li class="pf"><span class="cx">–</span>Rehabilitation reports</li>
+        </ul>
+        <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert"
+           target="_blank" class="plan-btn">Try Free →</a>
+      </div>
+      <div class="plan hot">
+        <div class="plan-badge">MOST POPULAR</div>
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">₹4,999 <span>/ month</span></div>
+        <div class="plan-desc">For practising engineers and PMC consultants.</div>
+        <ul class="plan-feats">
+          <li class="pf"><span class="ck">✓</span>Everything in Starter</li>
+          <li class="pf"><span class="ck">✓</span>Full IEEE 80 calculation suite</li>
+          <li class="pf"><span class="ck">✓</span>Conductor sizing Cu + GI</li>
+          <li class="pf"><span class="ck">✓</span>Preliminary design notes</li>
+          <li class="pf"><span class="ck">✓</span>Rehabilitation assessment</li>
+          <li class="pf"><span class="ck">✓</span>IS 3043 compliance check</li>
+        </ul>
+        <a href="#pay" class="plan-btn hot-btn">Get Pro Access →</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">₹14,999 <span>/ month</span></div>
+        <div class="plan-desc">For consulting firms, utilities and DISCOMs.</div>
+        <ul class="plan-feats">
+          <li class="pf"><span class="ck">✓</span>Everything in Professional</li>
+          <li class="pf"><span class="ck">✓</span>Up to 5 team seats</li>
+          <li class="pf"><span class="ck">✓</span>White-label report output</li>
+          <li class="pf"><span class="ck">✓</span>CEIG checklist generator</li>
+          <li class="pf"><span class="ck">✓</span>Priority WhatsApp support</li>
+          <li class="pf"><span class="ck">✓</span>Dedicated onboarding session</li>
+        </ul>
+        <a href="https://wa.me/919823015442?text=Hi%20Atul%2C%20I%20am%20interested%20in%20the%20Enterprise%20plan%20for%20Earthing%20Expert"
+           target="_blank" class="plan-btn">Contact for Demo →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="wrap" id="pay">
+  <div class="sec">
+    <div class="sec-label">Get Access</div>
+    <div class="pay-card">
+      <div>
+        <div class="pay-title">Pay via <span>UPI</span> — Start Today</div>
+        <p class="pay-body">No payment gateway needed. Pay directly to our bank account via UPI and get Pro access within 30 minutes — any time of day.</p>
+        <ol class="pay-steps">
+          <li class="ps"><span class="psn">01</span><span>Scan the QR code or use UPI ID to pay ₹4,999 (Pro) or ₹14,999 (Enterprise)</span></li>
+          <li class="ps"><span class="psn">02</span><span>Take a screenshot of your payment confirmation</span></li>
+          <li class="ps"><span class="psn">03</span><span>Send screenshot to WhatsApp — <strong>+91 98230 15442</strong></span></li>
+          <li class="ps"><span class="psn">04</span><span>Receive your Pro access link within 30 minutes</span></li>
+        </ol>
+        <a href="https://wa.me/919823015442?text=Hi%20Atul%2C%20I%20have%20paid%20for%20Earthing%20Expert%20Pro.%20Please%20find%20my%20payment%20screenshot%20attached."
+           target="_blank" class="btn-wa" style="display:inline-flex">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Send Payment Screenshot
+        </a>
+      </div>
+      <div class="upi-box">
+        <div class="upi-label">Scan to Pay — UPI</div>
+        <!-- YOUR QR CODE: Replace the div below with your actual QR image
+             <img src="your-qr-code.png" style="width:180px;height:180px"> -->
+        <div class="qr-wrap">
+          <div class="qr-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+              <rect x="4" y="4" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="2"/>
+              <rect x="8" y="8" width="8" height="8" fill="#00d4ff"/>
+              <rect x="28" y="4" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="2"/>
+              <rect x="32" y="8" width="8" height="8" fill="#00d4ff"/>
+              <rect x="4" y="28" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="2"/>
+              <rect x="8" y="32" width="8" height="8" fill="#00d4ff"/>
+              <rect x="28" y="28" width="4" height="4" fill="#00d4ff"/>
+              <rect x="36" y="28" width="8" height="4" fill="#00d4ff"/>
+              <rect x="28" y="36" width="8" height="8" fill="#00d4ff"/>
+              <rect x="40" y="36" width="4" height="8" fill="#00d4ff"/>
+            </svg>
+            <span style="font-size:10px;margin-top:6px;color:var(--muted)">Upload your QR code image<br>and replace this placeholder</span>
+          </div>
+        </div>
+        <div class="upi-id">atulghatwai@okaxis</div>
+        <div class="upi-note">
+          Works with PhonePe · GPay · Paytm · BHIM<br>
+          and all UPI-enabled banking apps.<br>
+          <strong style="color:var(--amber)">International users:</strong>
+          Contact via WhatsApp for payment options.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="sec">
+    <div class="cta-box">
+      <div class="cta-title">Your Next Earthing Decision<br>Deserves a <span>Second Opinion</span></div>
+      <p class="cta-sub">Free tier live now. No login needed to try the calculator above. Pro access in 30 minutes via UPI.</p>
+      <div class="cta-btns">
+        <a href="https://chatgpt.com/g/g-698612dc2754819188966d42518704b4-earthing-expert"
+           target="_blank" class="btn-primary">Open Earthing Expert →</a>
+        <a href="https://wa.me/919823015442?text=Hi%20Atul%2C%20I%20want%20to%20know%20more%20about%20Earthing%20Expert"
+           target="_blank" class="btn-wa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
       <strong>Earthing Expert</strong> — AI-powered design copilot for EHV substation earthing.<br>
       Aligned with IEEE Std. 80, IEEE Std. 81, IS 3043:2018, and CBIP Manual on Substation Design.<br>
-      <span style="opacity:0.5;font-size:11px;">Preliminary engineering aid only. Not a substitute for licensed engineering review.</span>
+      Built by <a href="https://www.linkedin.com/in/atulghatwai" target="_blank">Atul Ghatwai</a> ·
+      <a href="https://wa.me/919823015442" target="_blank">+91 98230 15442</a> ·
+      <a href="mailto:atulghatwai@gmail.com">atulghatwai@gmail.com</a><br>
+      <span style="opacity:.5;font-size:11px">Preliminary engineering aid only. Not a substitute for licensed engineering review. © 2024</span>
     </div>
   </div>
-</div>
+</footer>
 
+<script>
+// ── CHANGE THIS ONE LINE WHEN YOU DEPLOY TO RAILWAY ──────────
+const API_URL = "http://127.0.0.1:8000/earthing/query";
 
+function toggleAdv(){
+  const a=document.getElementById("adv");
+  const b=document.querySelector(".adv-btn");
+  a.classList.toggle("open");
+  b.textContent=a.classList.contains("open")
+    ?"▾ Advanced inputs (grid geometry, X/R ratio, body weight)"
+    :"▸ Advanced inputs (grid geometry, X/R ratio, body weight)";
+}
 
-</body></html>
+async function runCalc(){
+  const v=parseFloat(document.getElementById("f-v").value);
+  const f=parseFloat(document.getElementById("f-f").value);
+  const c=parseFloat(document.getElementById("f-c").value);
+  const r=parseFloat(document.getElementById("f-r").value);
+  const s=document.getElementById("f-s").value;
+  const q=document.getElementById("f-q").value||"Earthing design assessment";
+
+  if(!v||!f||!c||!r||!s){
+    alert("Please fill all required fields:\n• Substation Voltage\n• Fault Current\n• Clearing Time\n• Soil Resistivity\n• Soil Type");
+    return;
+  }
+
+  const gl=parseFloat(document.getElementById("f-gl").value)||null;
+  const gw=parseFloat(document.getElementById("f-gw").value)||null;
+  const gd=parseFloat(document.getElementById("f-gd").value)||null;
+  const ms=parseFloat(document.getElementById("f-ms").value)||null;
+  const xr=parseFloat(document.getElementById("f-xr").value)||null;
+  const bw=parseFloat(document.getElementById("f-bw").value)||null;
+
+  const body={query:q,substation_voltage_kv:v,soil_type:s,
+    fault_current_ka:f,clearing_time_s:c,soil_resistivity_ohm_m:r};
+  if(gl) body.grid_length_m=gl;
+  if(gw) body.grid_width_m=gw;
+  if(gd) body.grid_depth_m=gd;
+  if(ms) body.mesh_spacing_m=ms;
+  if(xr) body.xr_ratio=xr;
+  if(bw) body.body_weight_kg=bw;
+
+  const btn=document.getElementById("run-btn");
+  const btxt=document.getElementById("btn-txt");
+  const rbox=document.getElementById("result-box");
+  const rcnt=document.getElementById("result-content");
+
+  btn.disabled=true;
+  btxt.innerHTML='<span class="sp"></span> GENERATING REPORT...';
+  rbox.classList.remove("show");
+
+  try{
+    const res=await fetch(API_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json","X-API-Key":"dev"},
+      body:JSON.stringify(body)
+    });
+    if(!res.ok){
+      const e=await res.json();
+      throw new Error(e.detail||"HTTP "+res.status);
+    }
+    const data=await res.json();
+    rcnt.textContent=data.report_markdown;
+    rbox.classList.add("show");
+    rbox.scrollIntoView({behavior:"smooth",block:"start"});
+  }catch(err){
+    if(err.message.includes("fetch")||err.message.includes("Network")){
+      rcnt.textContent=
+        "⚠️  Cannot connect to the API server.\n\n"+
+        "To use the live calculator:\n\n"+
+        "  1. Open VS Code terminal\n"+
+        "  2. Run:  set EARTHING_API_KEY=dev\n"+
+        "  3. Run:  uvicorn earthing_api:app --reload\n"+
+        "  4. Refresh this page and try again\n\n"+
+        "After Railway deployment this will work for everyone automatically.\n\n"+
+        "Meanwhile — use the ChatGPT link above for full AI assistance.";
+    }else{
+      rcnt.textContent="Error: "+err.message;
+    }
+    rbox.classList.add("show");
+  }finally{
+    btn.disabled=false;
+    btxt.textContent="⚡ GENERATE EARTHING DESIGN NOTE";
+  }
+}
+
+function copyRpt(){
+  const t=document.getElementById("result-content").textContent;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.querySelector(".copy-btn");
+    b.textContent="Copied ✓";
+    setTimeout(()=>b.textContent="Copy Report",2000);
+  });
+}
+
+document.addEventListener("keydown",e=>{
+  if(e.key==="Enter"&&e.target.classList.contains("fi")) runCalc();
+});
+</script>
+</body>
+</html>
