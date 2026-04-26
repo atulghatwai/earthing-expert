@@ -253,10 +253,23 @@ nav{position:sticky;top:0;z-index:100;background:rgba(2,11,24,0.92);
   color:var(--cyan);background:var(--cyan-dim);border:1px solid var(--border2);
   padding:8px 16px;border-radius:4px;margin-bottom:12px;display:inline-block}
 .upi-note{font-size:11px;color:var(--muted);line-height:1.6}
-.qr-wrap{margin:0 auto 16px;width:180px;height:180px;
-  border:2px solid var(--border2);border-radius:8px;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;background:white}
-.qr-wrap img{width:100%;height:100%;object-fit:contain}
+.qr-wrap{
+  margin:0 auto 16px;
+  width:260px;     /* updated */
+  height:260px;    /* updated */
+  border:2px solid var(--border2);
+  border-radius:8px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:white;
+}
+.qr-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
 .qr-placeholder{display:flex;flex-direction:column;align-items:center;
   justify-content:center;gap:8px;color:var(--muted);font-size:11px;
   width:100%;height:100%;background:var(--bg2)}
@@ -562,7 +575,8 @@ footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
         <!-- YOUR QR CODE: Replace the div below with your actual QR image
              <img src="your-qr-code.png" style="width:180px;height:180px"> -->
         <div class="qr-wrap">
-          <div class="qr-placeholder">
+        <img src="images/payment-qr.png" alt="UPI QR Code">
+         </div>
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
               <rect x="4" y="4" width="16" height="16" rx="2" stroke="#00d4ff" stroke-width="2"/>
               <rect x="8" y="8" width="8" height="8" fill="#00d4ff"/>
